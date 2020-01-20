@@ -1,5 +1,7 @@
+# compatible with python 2.7
+
 import random
-from abc import ABCMeta,abstractmethod
+from abc import ABCMeta, abstractmethod
 
 '''
 Dowolny, nieegzotyczny jezyk programowania obiektowego (sugerowane: C++, Java, C#, TypeScript). W programie maja wystapic:
@@ -10,11 +12,11 @@ Dowolny, nieegzotyczny jezyk programowania obiektowego (sugerowane: C++, Java, C
 '''
 
 class Address(object):
-    def __init__(self,street,city):
+    def __init__(self, street, city):
         print "Address constructor"
         self.street = street
         self.city = city
-    
+
     def __str__(self):
         return '\n'.join([self.street, self.city])
 
@@ -32,7 +34,7 @@ class Human(object):
     def __init__(self, name="", age=0):
         super(Human, self).__init__()
         print "Human constructor"
-        # public 
+        # public
         self.name = name
         self.age = age
         # private
@@ -44,9 +46,9 @@ class Human(object):
         raise NotImplementedError
 
     def make_older(self):
-        self.age+=1
+        self.age += 1
         print self.name, "is", self.age, "now."
-    
+
     def get_religion(self):
         return self.__religion
 
@@ -54,9 +56,9 @@ class Human(object):
         self.__religion = new_religion
 
     def get_address(self):
-        print self.name, "address is:\n", self.__address 
+        print self.name, "address is:\n", self.__address
         return self.__address
-    
+
     def set_address(self, street, city):
         if not isinstance(self.__address, Address):
             self.__address = Address(street, city)
@@ -75,7 +77,7 @@ class Girl(Human):
         print "My name is", self.name, "and I like boys"
 
     def get_lucky_number(self):
-        self.__lucky_number = random.randint(0,10)
+        self.__lucky_number = random.randint(0, 10)
         print self.name, "lucky number is:", self.__lucky_number
         return self.__lucky_number
 
@@ -88,7 +90,8 @@ class Boy(Human):
     def say_hobby(self):
         print "My name is", self.name, "and I like girls"
 
-if __name__ =="__main__":
+
+if __name__ == "__main__":
     Jack = Boy("Jack Harrison", 25)
     print Jack.name
     #print Jack.__religion
